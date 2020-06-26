@@ -1,0 +1,11 @@
+---
+- hosts: bastion
+  remote_user: ubuntu
+  tasks:
+    - name: hostname
+      shell: hostname
+      register: result
+
+    - name: debug
+      debug:
+        var: result
