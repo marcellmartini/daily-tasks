@@ -1,0 +1,19 @@
+---
+# Install a snap with classic confinement
+- name: Install programs
+  become: yes
+  community.general.snap:
+    name:
+      - discord
+      - spotify
+
+# Install a snap with classic confinement
+- name: Install programs --classic
+  become: yes
+  community.general.snap:
+    name:
+      - code
+      - gitkraken
+      - slack
+      - spotify
+    classic: yes

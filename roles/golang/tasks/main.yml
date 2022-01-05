@@ -1,0 +1,49 @@
+---
+- name: Find old directory
+  find:
+    paths:
+    - "{{ ansible_env.HOME }}/.local/lib"
+    patterns: "^go-[0-9]*.*"
+    use_regex: yes
+    file_type: directory
+  register: golang_old_dir_list
+
+
+- name: Remove old directory
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ golang_old_dir_list.files }}"
+
+# - name: debug
+#   debug:
+#     var: golang_old_dir_list
+
+- name: Download version {{ GO_VERSION }}
+  ansible.builtin.unarchive:
+    src: https://go.dev/dl/go{{ GO_VERSION }}.linux-amd64.tar.gz
+    dest: /tmp
+    remote_src: yes
+    mode: '0755'
+
+- name: Move to directory "{{ ansible_env.HOME }}/.local/lib/{{ GO_DIR_NAME }}/"
+  ansible.posix.synchronize:
+    src: /tmp/go/
+    dest: "{{ ansible_env.HOME }}/.local/lib/{{ GO_DIR_NAME }}/"
+
+- name: Remove temp directory
+  ansible.builtin.file:
+    path: /tmp/go/
+    state: absent
+
+- name: Create go symbolic link
+  ansible.builtin.file:
+    src: "{{ ansible_env.HOME }}/.local/lib/{{ GO_DIR_NAME }}/bin/go"
+    dest: "{{ ansible_env.HOME }}/.local/bin/go"
+    state: link
+
+- name: Create a gofmt symbolic link
+  ansible.builtin.file:
+    src: "{{ ansible_env.HOME }}/.local/lib/{{ GO_DIR_NAME }}/bin/gofmt"
+    dest: "{{ ansible_env.HOME }}/.local/bin/gofmt"
+    state: link

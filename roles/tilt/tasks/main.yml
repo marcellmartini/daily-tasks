@@ -1,0 +1,20 @@
+---
+- name: Install tilt dependencies
+  include_role:
+    name: "{{ item }}"
+  loop:
+    - { role: docker }
+    - { role: docker_compose }
+    - { role: helm }
+    - { role: k8s }
+    - { role: ctlptl }
+
+- name: Install
+  ansible.builtin.unarchive:
+    src: https://github.com/tilt-dev/tilt/releases/download/v{{ TILT_VERSION }}/{{ TILT_TAR_FILE }}
+    dest: "{{ ansible_env.HOME }}/.local/bin"
+    remote_src: yes
+    mode: '0700'
+    exclude:
+    - LICENSE
+    - README.md

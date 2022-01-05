@@ -1,0 +1,10 @@
+---
+- name: Install ctlptl
+  ansible.builtin.unarchive:
+    src: https://github.com/tilt-dev/ctlptl/releases/download/v{{ CTLPTL_VERSION }}/{{ CTLPTL_TAR_FILE }}
+    dest: "{{ ansible_env.HOME }}/.local/bin"
+    remote_src: yes
+    mode: '0700'
+    exclude:
+    - LICENSE
+    - README.md

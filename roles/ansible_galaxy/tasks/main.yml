@@ -1,0 +1,6 @@
+---
+- name: Install collections
+  command: "ansible-galaxy collection install {{ item }}"
+  with_items:
+    - ansible.posix
+    - community.general

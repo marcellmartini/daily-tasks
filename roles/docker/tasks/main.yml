@@ -1,0 +1,50 @@
+---
+- name: Install requirements
+  become: yes
+  apt:
+    pkg:
+    - ca-certificates
+    - curl
+    - gnupg
+    - lsb-release
+    state: present
+    update_cache: yes
+
+- name: Download GPG Key file
+  get_url:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    dest: /tmp/docker-archive-keyring.gpg
+
+- name: Add GPG Key
+  become: yes
+  shell: "cat /tmp/docker-archive-keyring.gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg"
+
+# UBUNTU_ARCH and UBUNTU_RELEASE was set on pre_tasks
+- name: Add docker repository to apt
+  apt_repository:
+    filename: docker
+    repo: "deb [arch={{ UBUNTU_ARCH.stdout }} signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu {{ UBUNTU_RELEASE.stdout }} stable"
+    state: present
+
+- name: Install
+  become: yes
+  apt:
+    pkg:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    state: latest
+    update_cache: yes
+
+- name: Check if dockerd is started
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Add user to docker group
+  become: yes
+  ansible.builtin.user:
+    name: "{{ ansible_env.USER }}"
+    group: docker
+    append: yes

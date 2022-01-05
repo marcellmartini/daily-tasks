@@ -1,0 +1,23 @@
+---
+- name: Create "{{ ansible_env.HOME }}/.local/opt/helm-{{ HELM_VERSION }}"
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.local/opt/helm-{{ HELM_VERSION }}"
+    state: directory
+    mode: '0755'
+
+- name: Download version {{ HELM_VERSION }}
+  ansible.builtin.unarchive:
+    src: https://get.helm.sh/helm-{{ HELM_VERSION }}-linux-{{ UBUNTU_ARCH.stdout }}.tar.gz
+    dest: "{{ ansible_env.HOME }}/.local/opt/helm-{{ HELM_VERSION }}"
+    remote_src: yes
+    mode: '0755'
+    exclude:
+    - LICENSE
+    - README.md
+
+
+- name: Create a helm symbolic link
+  ansible.builtin.file:
+    src: "{{ ansible_env.HOME }}/.local/opt/helm-v3.7.2/linux-{{ UBUNTU_ARCH.stdout }}/helm"
+    dest: "{{ ansible_env.HOME }}/.local/bin/helm"
+    state: link

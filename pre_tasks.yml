@@ -1,0 +1,38 @@
+---
+- name: Install ansible roles ans collections
+  include_role:
+    name: ansible_galaxy
+
+- name: Create "{{ ansible_env.HOME }}/.local/bin"
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.local/bin"
+    state: directory
+    mode: '0755'
+
+- name: Create "{{ ansible_env.HOME }}/.local/lib"
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.local/lib"
+    state: directory
+    mode: '0755'
+
+- name: Create "{{ ansible_env.HOME }}/.local/opt"
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.local/opt"
+    state: directory
+    mode: '0755'
+
+- name: Get Ubuntu release
+  command: "lsb_release -cs"
+  register: UBUNTU_RELEASE
+
+- name: Get Ubuntu architecture
+  command: "dpkg --print-architecture"
+  register: UBUNTU_ARCH
+
+- name: Get Ubuntu proc
+  command: "uname -m"
+  register: UBUNTU_PROC
+
+- name: Get Ubuntu S.O.
+  command: "uname -s"
+  register: UBUNTU_SO

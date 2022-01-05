@@ -1,0 +1,31 @@
+---
+- name: Install gantsign.antigen role
+  command: "ansible-galaxy install {{ item }}"
+  with_items:
+    - gantsign.antigen
+
+- name: Install pkgs prereqs
+  become: yes
+  apt:
+    pkg:
+    - fonts-powerline
+    - fzf
+    - gawk
+    state: present
+    update_cache: yes
+
+- name: Configure oh-my-zsh
+  include_role:
+    name: gantsign.antigen
+
+- name: Antigen reset
+  ansible.builtin.lineinfile:
+    path: "{{ ansible_env.HOME }}/.antigenrc"
+    regexp: '^antigen reset'
+    line: "\nantigen reset\n"
+
+- name: Configure fzf-tab-completion
+  ansible.builtin.lineinfile:
+    path: "{{ ansible_env.HOME }}/.zshrc"
+    regexp: 'fzf-tab-completion'
+    line: "\nsource {{ ansible_env.HOME }}/.antigen/bundles/lincheney/fzf-tab-completion/zsh/fzf-zsh-completion.sh\n"

@@ -1,0 +1,21 @@
+---
+- name: Install multiples pkgs
+  become: yes
+  apt:
+    pkg:
+    - ansible
+    - awscli
+    - curl
+    - git
+    - ipcalc
+    - jid
+    - jq
+    - net-tools
+    - nmap
+    - tilix
+    - tree
+    - vim
+    - vlc
+    - wireshark
+    state: present
+    update_cache: yes
