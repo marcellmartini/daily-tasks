@@ -21,6 +21,7 @@
 
 # UBUNTU_ARCH and UBUNTU_RELEASE was set on pre_tasks
 - name: Add docker repository to apt
+  become: yes
   apt_repository:
     filename: docker
     repo: "deb [arch={{ UBUNTU_ARCH.stdout }} signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu {{ UBUNTU_RELEASE.stdout }} stable"
