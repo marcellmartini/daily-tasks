@@ -8,7 +8,6 @@
     file_type: directory
   register: golang_old_dir_list
 
-
 - name: Remove old directory
   ansible.builtin.file:
     path: "{{ item.path }}"
@@ -22,19 +21,13 @@
 - name: Download version {{ GO_VERSION }}
   ansible.builtin.unarchive:
     src: https://go.dev/dl/go{{ GO_VERSION }}.linux-amd64.tar.gz
-    dest: /tmp
+    dest: "{{ ansible_env.HOME }}/.local/lib/"
     remote_src: yes
     mode: '0755'
 
-- name: Move to directory "{{ ansible_env.HOME }}/.local/lib/{{ GO_DIR_NAME }}/"
-  ansible.posix.synchronize:
-    src: /tmp/go/
-    dest: "{{ ansible_env.HOME }}/.local/lib/{{ GO_DIR_NAME }}/"
-
-- name: Remove temp directory
-  ansible.builtin.file:
-    path: /tmp/go/
-    state: absent
+- name: Change directory name
+  shell:
+    cmd: "mv {{ ansible_env.HOME }}/.local/lib/go {{ ansible_env.HOME }}/.local/lib/{{ GO_DIR_NAME }}"
 
 - name: Create go symbolic link
   ansible.builtin.file:

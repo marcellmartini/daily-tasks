@@ -18,12 +18,6 @@
   include_role:
     name: gantsign.antigen
 
-- name: Antigen reset
-  ansible.builtin.lineinfile:
-    path: "{{ ansible_env.HOME }}/.antigenrc"
-    regexp: '^antigen reset'
-    line: "\nantigen reset\n"
-
 - name: Configure fzf-tab-completion
   ansible.builtin.lineinfile:
     path: "{{ ansible_env.HOME }}/.zshrc"

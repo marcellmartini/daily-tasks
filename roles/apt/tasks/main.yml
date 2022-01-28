@@ -1,6 +1,6 @@
 ---
 - name: Install multiples pkgs
-  become: yes
+  become: true
   apt:
     pkg:
     - ansible
@@ -15,6 +15,7 @@
     - tilix
     - tree
     - vim
+    - virtualbox
     - vlc
     - wireshark
     state: present

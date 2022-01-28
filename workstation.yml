@@ -1,5 +1,5 @@
 ---
-- hosts: local
+- hosts: virtualbox
 
   pre_tasks:
     - include_tasks: pre_tasks.yml

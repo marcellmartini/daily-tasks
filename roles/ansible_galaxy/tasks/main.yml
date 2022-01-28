@@ -1,4 +1,10 @@
 ---
+- name: Install ansible
+  become: yes
+  apt:
+    pkg:
+    - ansible
+
 - name: Install collections
   command: "ansible-galaxy collection install {{ item }}"
   with_items:
