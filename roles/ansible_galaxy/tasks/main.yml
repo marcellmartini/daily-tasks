@@ -1,12 +1,18 @@
 ---
-- name: Install ansible
+- name: Install pre-req
   become: yes
   apt:
     pkg:
     - ansible
+    - git
+
+- name: Install roles
+  command: "ansible-galaxy install {{ item }}"
+  with_items:
+    - gantsign.antigen
+    - diodonfrost.p10k
 
 - name: Install collections
   command: "ansible-galaxy collection install {{ item }}"
   with_items:
-    - ansible.posix
     - community.general

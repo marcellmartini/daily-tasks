@@ -1,12 +1,33 @@
 ---
 - hosts: virtualbox
+# - hosts: local
 
-  pre_tasks:
-    - include_tasks: pre_tasks.yml
+  # pre_tasks:
+    # - include_tasks: pre_tasks.yml
+
+  vars:
+    - ansible_become_password: '{{ lookup("env", "ANSIBLE_BECOME_PASSWORD") }}'
+
+  tasks:
+  # TODO: Usar a api do github para buscar a ultima versão nos apps
+  #   * ctlptl
+  #   * kubectx
+  #   * tilt
+  #   * kind
+
+  # - name: Get latest Kind release
+  #   uri:
+  #     url: "https://api.github.com/repos/weaveworks/eksctl/releases/latest"
+  #     method: GET
+  #   register: latest_kind_release
+
+  # - name: debug
+  #   debug:
+  #     var: latest_kind_release.json.tag_name
 
   roles:
-    - apt
-    - golang
-    - snap
-    - tilt
-    - zsh
+    # - apt
+    # - golang
+    # - snap
+    # - tilt
+    # - zsh

@@ -1,9 +1,4 @@
 ---
-- name: Install gantsign.antigen role
-  command: "ansible-galaxy install {{ item }}"
-  with_items:
-    - gantsign.antigen
-
 - name: Install pkgs prereqs
   become: yes
   apt:
@@ -22,4 +17,8 @@
   ansible.builtin.lineinfile:
     path: "{{ ansible_env.HOME }}/.zshrc"
     regexp: 'fzf-tab-completion'
-    line: "\nsource {{ ansible_env.HOME }}/.antigen/bundles/lincheney/fzf-tab-completion/zsh/fzf-zsh-completion.sh\n"
+    line: "source {{ ansible_env.HOME }}/.antigen/bundles/lincheney/fzf-tab-completion/zsh/fzf-zsh-completion.sh\n"
+
+# - name: Configure powerlevel10k
+#   include_role:
+#     name: diodonfrost.p10k

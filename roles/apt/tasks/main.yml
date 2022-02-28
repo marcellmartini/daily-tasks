@@ -3,10 +3,8 @@
   become: true
   apt:
     pkg:
-    - ansible
     - awscli
     - curl
-    - git
     - ipcalc
     - jid
     - jq

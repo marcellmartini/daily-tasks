@@ -1,5 +1,5 @@
 ---
-- name: Install ansible roles ans collections
+- name: Install ansible roles and collections
   include_role:
     name: ansible_galaxy
 

@@ -11,13 +11,18 @@
     1. Antigen pip, pyenv
 
     * Ref.: https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
+
 1. tfswitch
     1. curl -L https://raw.githubusercontent.com/warrensbox/terraform-switcher/release/install.sh | bash
+
 1. GIT + VS code
     1. Configurar o git para usar o vscode como editor de commit
     1. Configurar o usuário geral do git (email e name)
 
     * Ref.: https://blog.geekhunter.com.br/visual-studio-code-como-editor-do-git/#Como_configurar_o_VS_Code_como_editor_default_do_Git
+
+1. Instalar awscli pela aws
+    * Ref.: https://docs.aws.amazon.com/cli/v1/userguide/install-linux.html
 
 
 * Criar arquivo .aliasrc
