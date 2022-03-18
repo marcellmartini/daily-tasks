@@ -1,7 +1,8 @@
 # Atividades pendentes
 1. Instalar terraform
     * tfswitch
-    * Ref.: https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started
+        * Ref.: https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started
+    * ethtool
 
 1. Instalar zoom
 1. python3-pip
