@@ -25,8 +25,7 @@
 1. Instalar awscli pela aws
     * Ref.: https://docs.aws.amazon.com/cli/v1/userguide/install-linux.html
 
-
-* Criar arquivo .aliasrc
+1. Criar arquivo .aliasrc
     * importar o arquivo no shell padrão do usuário (.bashrc ou .zshrc)
     * Adicionar chaves
         * Datadog
@@ -35,6 +34,15 @@
         * Docker BuildKit
         * EDITOR
     * https://github.com/bash-my-aws/bash-my-aws
+
+1. Fazer terraform para configuração de VPC da vida
+    * terraform provider openvpn cloud
+        * criar ec2
+        * criar security group
+        * criar ssh key
+        * configurar openvpn
+        * pegar token no openvpn cloud
+        * passar token para o aplicativo do openvpn cloud na ec2 da aws
 
 # Configuração do docker tookit
 * Adicionar as envvars no arqruivo .aliasrc:

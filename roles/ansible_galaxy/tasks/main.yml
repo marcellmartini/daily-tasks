@@ -5,6 +5,7 @@
     pkg:
     - ansible
     - git
+    - git-flow
 
 - name: Install roles
   command: "ansible-galaxy install {{ item }}"

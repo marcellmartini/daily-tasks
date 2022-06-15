@@ -1,9 +1,10 @@
 ---
-- hosts: virtualbox
-# - hosts: local
+# - hosts: virtualbox
+- hosts: local
+  remote_user: ubuntu
 
-  # pre_tasks:
-    # - include_tasks: pre_tasks.yml
+  pre_tasks:
+    - include_tasks: pre_tasks.yml
 
   vars:
     - ansible_become_password: '{{ lookup("env", "ANSIBLE_BECOME_PASSWORD") }}'
@@ -26,6 +27,8 @@
   #     var: latest_kind_release.json.tag_name
 
   roles:
+    # - docker
+    # - docker_compose
     # - apt
     # - golang
     # - snap

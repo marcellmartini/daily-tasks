@@ -1,43 +1,43 @@
 ---
-antigen_version: '2.2.3'
+antigen_version: "2.2.3"
 antigen_redis_sha256sum: bd3f1077050d52f459bc30fa3f025c44c528d625b4924a2f487fd2bacb89d61e
 antigen_install_oh_my_zsh: yes
 
 users:
-- username: "{{ ansible_env.USER }}"
-  antigen_libraries:
-    - name: oh-my-zsh
+  - username: "{{ ansible_env.USER }}"
+    antigen_libraries:
+      - name: oh-my-zsh
 
-  antigen_theme:
-    # name: romkatv/powerlevel10k
-    name: candy
-    # name: agnoster
-    # name: robbyrussell
-    # name: denysdovhan/spaceship-prompt
+    antigen_theme:
+      name: romkatv/powerlevel10k
+      # name: candy
+      # name: agnoster
+      # name: robbyrussell
+      # name: denysdovhan/spaceship-prompt
 
-  antigen_bundles:
-    # Bundles from the default repo (robbyrussell's oh-my-zsh).
-    - name: aws
-    - name: docker
-    - name: fzf
-    - name: git
-    - name: kubectl
-    - name: kube-ps1
-    - name: command-not-found
+    antigen_bundles:
+      # Bundles from the default repo (robbyrussell's oh-my-zsh).
+      - name: aws
+      - name: docker
+      - name: fzf
+      - name: git
+      - name: git-flow
+      - name: kubectl
+      - name: kube-ps1
+      - name: command-not-found
 
-    # Syntax highlighting bundle.
-    # `name` is required (any valid file name will do so long as it's unique for the bundles)
-    - name: fzf-tab-completion
-      url: lincheney/fzf-tab-completion
-    - name: zsh-autosuggestions
-      url: zsh-users/zsh-autosuggestions
-    - name: zsh-completions
-      url: zsh-users/zsh-completions
-    - name: zsh-plugin-fzf-finder
-      url: leophys/zsh-plugin-fzf-finder
-    - name: zsh-syntax-highlighting
-      url: zsh-users/zsh-syntax-highlighting
-
+      # Syntax highlighting bundle.
+      # `name` is required (any valid file name will do so long as it's unique for the bundles)
+      - name: fzf-tab-completion
+        url: lincheney/fzf-tab-completion
+      - name: zsh-autosuggestions
+        url: zsh-users/zsh-autosuggestions
+      - name: zsh-completions
+        url: zsh-users/zsh-completions
+      - name: zsh-plugin-fzf-finder
+        url: leophys/zsh-plugin-fzf-finder
+      - name: zsh-syntax-highlighting
+        url: zsh-users/zsh-syntax-highlighting
 # # variables for diodonfrost/p10k
 # # Powerlevel10k Git repository url
 # p10k_repository_url: 'https://github.com/romkatv/powerlevel10k.git'
