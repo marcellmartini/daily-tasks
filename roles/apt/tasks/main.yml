@@ -1,20 +1,25 @@
 ---
+- name: Apt upgrade
+  become: true
+  ansible.builtin.apt:
+    upgrade: "yes"
+
 - name: Install multiples pkgs
   become: true
-  apt:
+  ansible.builtin.apt:
     pkg:
-    - awscli
-    - curl
-    - ipcalc
-    - jid
-    - jq
-    - net-tools
-    - nmap
-    - tilix
-    - tree
-    - vim
-    - virtualbox
-    - vlc
-    - wireshark
+      - awscli
+      - curl
+      - ipcalc
+      - jid
+      - jq
+      - net-tools
+      - nmap
+      - tilix
+      - tree
+      - vim
+      # - virtualbox
+      - vlc
+      - wireshark
     state: present
     update_cache: yes

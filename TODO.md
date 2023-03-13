@@ -44,6 +44,8 @@
         * pegar token no openvpn cloud
         * passar token para o aplicativo do openvpn cloud na ec2 da aws
 
+1. Instalar exercism
+
 # Configuração do docker tookit
 * Adicionar as envvars no arqruivo .aliasrc:
     * export DOCKER_BUILDKIT=1

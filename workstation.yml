@@ -1,7 +1,7 @@
 ---
-# - hosts: virtualbox
-- hosts: local
-  remote_user: ubuntu
+- hosts: virtualbox
+  # - hosts: local
+  remote_user: shotler
 
   pre_tasks:
     - include_tasks: pre_tasks.yml
@@ -29,8 +29,8 @@
   roles:
     # - docker
     # - docker_compose
-    # - apt
-    # - golang
+    - apt
+    - golang
     # - snap
-    # - tilt
-    # - zsh
+    - tilt
+    - zsh

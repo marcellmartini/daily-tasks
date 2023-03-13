@@ -1,4 +1,4 @@
 ---
 # UBUNTU_PROC was set on pre_tasks
-TILT_VERSION: 0.23.4
+TILT_VERSION: 0.30.7
 TILT_TAR_FILE: tilt.{{ TILT_VERSION }}.linux.{{ UBUNTU_PROC.stdout }}.tar.gz

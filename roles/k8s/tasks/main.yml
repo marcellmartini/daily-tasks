@@ -8,22 +8,22 @@
   command: cat /tmp/kubectl_stable.txt
   register: kubectl_stable_release
 
-- name: Install
+- name: Install kubectl
   get_url:
     url: "https://dl.k8s.io/release/{{ kubectl_stable_release.stdout }}/bin/linux/amd64/kubectl"
     dest: "{{ ansible_env.HOME }}/.local/bin/kubectl"
-    mode: '0700'
+    mode: "0700"
 
 # UBUNTU_ARCH was set on pre_tasks
 - name: Install kind
   get_url:
     url: https://kind.sigs.k8s.io/dl/v{{ KIND_VERSION }}/kind-linux-{{ UBUNTU_ARCH.stdout }}
     dest: "{{ ansible_env.HOME }}/.local/bin/kind"
-    mode: '0700'
+    mode: "0700"
 
 - name: Download kubectx
   ansible.builtin.git:
-    repo: 'https://github.com/ahmetb/kubectx'
+    repo: "https://github.com/ahmetb/kubectx"
     dest: "{{ ansible_env.HOME }}/.local/opt/kubectx"
     version: "{{ KUBECTX_VERSION }}"
 
