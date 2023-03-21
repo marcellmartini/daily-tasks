@@ -48,6 +48,8 @@
 
 1. Instalar https://docs.instruqt.com/getting-started/set-up-instruqt
 
+1. instalar GH cli https://github.com/cli/cli/releases
+
 # Configuração do docker tookit
 * Adicionar as envvars no arqruivo .aliasrc:
     * export DOCKER_BUILDKIT=1
