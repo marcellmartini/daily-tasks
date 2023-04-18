@@ -50,6 +50,8 @@
 
 1. instalar GH cli https://github.com/cli/cli/releases
 
+1. Instalar Davinci Resolve
+
 # Configuração do docker tookit
 * Adicionar as envvars no arqruivo .aliasrc:
     * export DOCKER_BUILDKIT=1
