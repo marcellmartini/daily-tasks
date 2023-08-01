@@ -1,5 +1,0 @@
-- name: Install Docker-compose
-  get_url:
-    url: "https://github.com/docker/compose/releases/download/{{ DOCKER_COMPOSE_VERSION }}/docker-compose-{{ UBUNTU_SO.stdout }}-{{ UBUNTU_PROC.stdout }}"
-    dest: "{{ ansible_env.HOME }}/.local/bin/docker-compose"
-    mode: "0700"
