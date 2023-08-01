@@ -1,24 +1,23 @@
 ---
 - name: Install pkgs prereqs
-  become: yes
-  apt:
+  become: true
+  ansible.builtin.apt:
     pkg:
-    - fonts-powerline
-    - fzf
-    - gawk
+      - fonts-powerline
+      - fzf
+      - gawk
     state: present
-    update_cache: yes
+    update_cache: true
 
 - name: Configure oh-my-zsh
-  include_role:
+  ansible.builtin.include_role:
     name: gantsign.antigen
 
 - name: Configure fzf-tab-completion
   ansible.builtin.lineinfile:
     path: "{{ ansible_env.HOME }}/.zshrc"
-    regexp: 'fzf-tab-completion'
+    regexp: "fzf-tab-completion"
     line: "source {{ ansible_env.HOME }}/.antigen/bundles/lincheney/fzf-tab-completion/zsh/fzf-zsh-completion.sh\n"
-
 # - name: Configure powerlevel10k
 #   include_role:
 #     name: diodonfrost.p10k

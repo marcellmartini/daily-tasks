@@ -1,7 +1,7 @@
 ---
 antigen_version: "2.2.3"
 antigen_redis_sha256sum: bd3f1077050d52f459bc30fa3f025c44c528d625b4924a2f487fd2bacb89d61e
-antigen_install_oh_my_zsh: yes
+antigen_install_oh_my_zsh: true
 
 users:
   - username: "{{ ansible_env.USER }}"
