@@ -7,6 +7,7 @@ Install packages:
 * https://github.com/lincheney/fzf-tab-completion.git
 * sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"\n\n
 * https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-completion.html#cli-command-completion-linux
+* https://github.com/romkatv/powerlevel10k#configuration
 
 Plugins:
 plugins=(
