@@ -19,6 +19,7 @@ plugins=(
   git-prompt
   kubectl
   golang
+  terraform
   zsh-completions
   zsh-autosuggestions
 )

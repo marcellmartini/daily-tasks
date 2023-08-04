@@ -13,6 +13,8 @@
       - ipcalc
       - jid
       - jq
+      - git
+      - git-extras
       - net-tools
       - nmap
       - tilix
