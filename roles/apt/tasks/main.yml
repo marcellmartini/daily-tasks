@@ -9,10 +9,12 @@
   ansible.builtin.apt:
     pkg:
       - awscli
+      - bat
       - curl
       - ipcalc
       - jid
       - jq
+      - fd-find
       - git
       - git-extras
       - net-tools
