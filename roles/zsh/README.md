@@ -14,15 +14,34 @@ plugins=(
   aws
   command-not-found
   docker
+  emoji
   fzf
+  fzf-alias
   git
-  git-prompt
+  helm
   kubectl
+  kube-ps1
+  minikube
   golang
   terraform
   zsh-completions
   zsh-autosuggestions
 )
 
+
 ref:
 * https://medium.com/@herryhan2435/using-aws-cli-with-fzf-on-ohmyzsh-ec995ee3784f
+# FZF configure
+
+## fzf-zsh-completion
+## then edit ~/.zsh file.
+source $HOME/.oh-my-zsh/custom/plugins/fzf-tab-completion/zsh/fzf-zsh-completion.sh
+## only aws command completion
+zstyle ':completion:*:*:aws' fzf-search-display true
+## or for everything
+zstyle ':completion:*' fzf-search-display true
+## fzf configure
+export FZF_DEFAULT_OPTS=" --height 40% --layout=reverse"
+export FZF_CTRL_T_OPTS="-m --preview 'bat -n --color=always {}' --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+export FZF_ALT_C_OPTS="-m --preview 'tree -C {}'"
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
