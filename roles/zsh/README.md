@@ -32,6 +32,7 @@ plugins=(
 ref:
 * https://medium.com/@herryhan2435/using-aws-cli-with-fzf-on-ohmyzsh-ec995ee3784f
 # FZF configure
+https://github.com/junegunn/fzf#settings
 
 ## fzf-zsh-completion
 ## then edit ~/.zsh file.
